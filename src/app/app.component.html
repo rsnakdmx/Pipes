@@ -1,0 +1,113 @@
+<div class="container">
+    <h1 class="mt-5">Pipes</h1>
+    <hr>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Variable</th>
+          <th scope="col">Pipe</th>
+          <th scope="col">Producto</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>{{ nombre }}</td>
+          <td> uppercase </td>
+          <td> {{ nombre | uppercase }} </td>
+        </tr>
+        <tr>
+          <td>{{ nombre }}</td>
+          <td> lowercase </td>
+          <td> {{ nombre | lowercase }} </td>
+        </tr>
+        <tr>
+          <td>{{ nombre }}</td>
+          <td> slice:3 </td>
+          <td> {{ nombre | slice:3 }} </td>
+        </tr>
+        <tr>
+          <td>{{ nombre }}</td>
+          <td> slice:0:3 </td>
+          <td> {{ nombre | slice:0:3 }} </td>
+        </tr>
+        <tr>
+          <td>{{ arreglo }}</td>
+          <td> slice:1:5 </td>
+          <td> {{ arreglo | slice:1:5 }} </td>
+        </tr>
+        <tr>
+          <td>{{ PI }}</td>
+          <td> number </td>
+          <td> {{ PI | number:'3.0-0' }} </td>
+        </tr>
+        <tr>
+          <td>{{ PI }}</td>
+          <td> number </td>
+          <td> {{ PI | number:'1.0-4' }} </td>
+        </tr>
+        <tr>
+          <td>{{ a }}</td>
+          <td> percent </td>
+          <td> {{ a | percent:'2.2-4' }} </td>
+        </tr>
+        <tr>
+          <td>{{ salario }}</td>
+          <td> currency </td>
+          <td> {{ salario | currency }} </td>
+        </tr>
+        <tr>
+          <td>{{ salario }}</td>
+          <td> currency:'EUR' </td>
+          <td> {{ salario | currency:'EUR' }} </td>
+        </tr>
+        <tr>
+          <td>{{ salario }}</td>
+          <td> currency:'EUR':'true':'4.0-0' </td>
+          <td> {{ salario | currency:'EUR':symbol:'4.0-0' }} </td>
+        </tr>
+        <tr>
+          <td>{{ valorDePromesa }}</td>
+          <td> async </td>
+          <td> {{ valorDePromesa | async }} </td>
+        </tr>
+        <tr>
+          <td>{{ fecha }}</td>
+          <td> date </td>
+          <td> {{ fecha | date }} </td>
+        </tr>
+        <tr>
+          <td>{{ fecha }}</td>
+          <td> date:'medium' </td>
+          <td> {{ fecha | date:'medium' }} </td>
+        </tr>
+        <tr>
+          <td>{{ fecha }}</td>
+          <td> date:'dd/MM/yyyy' </td>
+          <td> {{ fecha | date:'dd/MM/yyyy' }} </td>
+        </tr>
+        <tr>
+          <td>{{ nombre2 }}</td>
+          <td> capitalizado </td>
+          <td> {{ nombre2 | capitalizado}} </td>
+        </tr>
+        <tr>
+          <td>{{ nombre }}</td>
+          <td>
+              contrasena: {{ activar }} 
+              <br>
+              <button (click)="activar = !activar" type="button" class="btn btn-outline-primary">Activar/Desactivar</button> 
+          </td>
+          <td> {{ nombre | contrasena:activar}} </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h4>Slice:5:20 (No hay array out of bounds exception)</h4>
+    <ul>
+        <li *ngFor="let item of arreglo | slice:5:20">{{ item }}</li>
+    </ul>
+
+    <h4>JSON</h4>
+    <pre>{{ heroe | json }}</pre>
+</div>
